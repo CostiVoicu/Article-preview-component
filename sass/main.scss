@@ -1,0 +1,182 @@
+@import './variables';
+
+html, body{
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+body{
+    font-size: $font-size;
+    font-family: $family-font;
+    font-weight: $regular-weight;
+    background-color: $light-grayish-blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .main{
+        width: 330px;
+        height: auto;
+        background-color: white;
+        border-radius: 1em;
+        overflow: hidden;
+        @media (min-width: $desktop-size){
+            overflow: visible;
+            width: 850px;
+            height: 310px;
+            display: grid;
+            grid-template-columns: 40% 60%;
+            position: relative;
+        }
+        .image{
+            @media (min-width: $desktop-size) {
+                overflow: hidden;
+            }
+            img{
+                width: 100%;
+                height: 200px;
+                @media (min-width: $desktop-size){
+                    border-radius: 1em;
+                    width: 420px;
+                    height: 310px;
+                }
+            }
+        }
+        .text{
+            padding: 2em;
+            @media (min-width: $desktop-size){
+                padding: 1em  4em;
+            }
+            .article{
+                padding-bottom: 1em;
+                .title{
+                    font-size: $font-size + 5px;
+                    color: $very-dark-grayish-blue;
+                    font-weight: $big-weight;
+                    @media (min-width: $desktop-size){
+                        font-size: $font-size + 10px;
+                    }
+                }
+                .paragraph{
+                    color: $desaturated-dark-blue;
+                    font-size: $font-size + 1.5px;
+                    @media (min-width: $desktop-size) {
+                        font-size: $font-size + 2px;
+                    }
+                }
+            }
+            .profile_card{
+                display: grid;
+                grid-template-columns: 23% 65% 20%;
+                grid-template-rows: 50% 50%;
+                @media (min-width: $desktop-size) {
+                    grid-template-columns: 13% 75% 20%;
+                }
+                img{
+                    grid-column: 1/2;
+                    grid-row: 1/3;
+                    width: 45px;
+                    height: auto;
+                    border-radius: 50%;
+                }
+                .name{
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                    font-weight: $big-weight;
+                    color: $very-dark-grayish-blue;
+                    font-size: $font-size + 2px;
+                }
+                .date{
+                    color: $grayish-blue;
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+                }
+                .cerc{
+                    grid-column: 3/4;
+                    grid-row: 1/3;
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    z-index: 3;
+                    background-color: $light-grayish-blue;
+                    #share{
+                        position: absolute;
+                        left: 10px;
+                        top: 10px;
+                        width: 20px;
+                        height: auto;
+                        border-radius: 50%;
+                        z-index: 4;
+                        grid-column: 3/4;
+                        grid-row: 1/3;
+                        filter: invert(50%) sepia(17%) saturate(523%) hue-rotate(174deg) brightness(94%) contrast(93%);
+                    }
+                }
+            }
+        }
+        .share_card{
+            width: 330px;
+            height: 70px;
+            background-color: $very-dark-grayish-blue;
+            display: grid;
+            grid-template-columns: 20% 10% 10% 10% 34%;
+            grid-template-rows: 50%;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            justify-items: center;
+            display: none;
+            @media (min-width: $desktop-size){
+                position: absolute;
+                width: 280px;
+                height: 65px;
+                top: 141px;
+                left: 623px;
+                border-radius: 1em;
+                grid-template-columns: 25% 15% 15% 15%;
+            }
+            &__text{
+                color: $grayish-blue;
+                font-size: $font-size + 1px;
+                letter-spacing: 0.3em;
+            }
+            .cerc{
+                position: relative;
+                left: 43px;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                z-index: 3;
+                background-color: $desaturated-dark-blue;
+                @media (min-width: $desktop-size){
+                    display: none;
+                }
+                #share{
+                    position: absolute;
+                    left: 10px;
+                    top: 10px;
+                    width: 20px;
+                    height: auto;
+                    border-radius: 50%;
+                    z-index: 4;
+                    filter: invert(94%) sepia(58%) saturate(0%) hue-rotate(253deg) brightness(106%) contrast(106%);
+                }
+            }
+            .triangle{
+                display: none;
+                @media (min-width: $desktop-size){
+                    display: block;
+                    position: absolute;
+                    top: 65px;
+                    left: 130px;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 15px 15px 0 15px;
+                    border-color: $very-dark-grayish-blue transparent transparent transparent;
+                }
+            }
+        }
+    }
+}
